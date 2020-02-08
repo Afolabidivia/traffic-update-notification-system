@@ -25,7 +25,7 @@ export class NewPostPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(moment());
+    console.log(moment().format());
     this.authService.user.subscribe(userData => {
       this.user = userData;
     });
