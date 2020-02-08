@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
+
+import { PostsPageRoutingModule } from './posts-routing.module';
+
+import { PostsPage } from './posts.page';
 import { MenuComponent } from '../components/menu/menu.component';
 import { MenuModule } from '../modules/menu/menu.module';
 
@@ -13,17 +15,12 @@ import { MenuModule } from '../modules/menu/menu.module';
     MenuComponent
   ],
   imports: [
-    MenuModule,
     CommonModule,
     FormsModule,
+    MenuModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
+    PostsPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [PostsPage]
 })
-export class HomePageModule {}
+export class PostsPageModule {}

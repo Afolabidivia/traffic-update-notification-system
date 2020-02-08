@@ -24,3 +24,45 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.back_btn_box {
+    background: #ffffff;
+    box-shadow: 0 3px 6px #C7C7C72C;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ion-icon {
+        color: #000000;
+        width: 30px;
+        height: 30px;
+    }
+}
+.button_wrapper {
+    display: flex;
+    width: 100%;
+    .ion-activatable {
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 17px;
+        color: #ffffff;
+    }
+    .ion-activatable:active,
+    .ion-activatable:focus {
+        outline: none;
+        border: none;
+    }
+    .ion-activatable.primary-btn {
+        background: #f72664;
+        border-color: #f72664;
+    }
+    .ion-activatable[disabled] {
+        background: #f83c74
+    }
+}

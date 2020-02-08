@@ -3,7 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // googleApiKey: 'AIzaSyACDQccHmLWyRz9Y6DneGsy_w677SGqZXM'
+  firebaseConfig: {
+    apiKey: 'AIzaSyCO0wuH8PG9TJAuZZzX0PzRjBnCfeHRlQw',
+    authDomain: 'tuns-66ab7.firebaseapp.com',
+    databaseURL: 'https://tuns-66ab7.firebaseio.com',
+    projectId: 'tuns-66ab7',
+    storageBucket: 'tuns-66ab7.appspot.com',
+    messagingSenderId: '1043717975203',
+    appId: '1:1043717975203:web:aaf687dfbb4c3dfef12316',
+    measurementId: 'G-WC42T1NYGK'
+  },
+  googleApiKey: 'AIzaSyCzv7dqGuo1XJVO9QOz8xiV0okfHmkx47s'
 };
 
 /*

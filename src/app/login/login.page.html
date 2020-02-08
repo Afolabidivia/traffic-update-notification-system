@@ -1,0 +1,36 @@
+<ion-content padding>
+  <div class="back_btn_box" (click)="navigateBack()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </div>
+  <div class="page_title">Admin Login</div>
+  <form class="login-form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-field">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input
+        type="email"
+        ngModel
+        name="email"
+        required
+        email
+        #emailCtrl="ngModel"
+        ></ion-input>
+    </div>
+    <div class="form-field">
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input
+        type="password"
+        ngModel
+        name="password"
+        required
+        minlength="6"
+        #passwordCtrl="ngModel"
+        ></ion-input>
+    </div>
+    <div class="button_wrapper">
+      <button
+        class="ion-activatable primary-btn"
+        type="submit"
+        [disabled]="!f.valid">Login<ion-ripple-effect></ion-ripple-effect></button>
+    </div>
+  </form>
+</ion-content>
