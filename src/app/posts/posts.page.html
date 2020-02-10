@@ -13,5 +13,20 @@
 </ion-header>
 
 <ion-content>
-
+  <div class="tup-wrapper">
+    <div class="loader-box" *ngIf="isLoading">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+    <div *ngIf="!isLoading && trafficUpdates.length > 0">
+      <div class="tup-box" *ngFor="let tu of trafficUpdates">
+        <div class="tup-info">
+          <div class="tup-title">{{ tu.title }}</div>
+          <div class="tup-date">{{ tu.fd }}</div>
+        </div>
+        <div class="icon-box">
+          <ion-icon name="arrow-dropright" size="large"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

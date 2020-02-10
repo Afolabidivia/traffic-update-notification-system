@@ -21,7 +21,7 @@ export class NewPostPage implements OnInit {
     private postService: PostsService,
     private router: Router,
     private loadingCtrl: LoadingController,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {

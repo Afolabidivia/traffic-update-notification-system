@@ -21,13 +21,15 @@ export class PostsService {
   }
 
   addPost(title: string, desc: string, user: string) {
+    const date = moment().format();
     return this.http.post<{ name: string }>(
       `${environment.firebaseConfig.databaseURL}/traffic-updates.json`,
       {
         id: null,
         title,
         desc,
-        user
+        user,
+        date
       }
     );
   }
