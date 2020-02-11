@@ -20,6 +20,12 @@ export class PostsService {
     );
   }
 
+  fetchPost(postId: string) {
+    return this.http.get(
+      `${environment.firebaseConfig.databaseURL}/traffic-updates/${postId}.json`
+    );
+  }
+
   addPost(title: string, desc: string, user: string) {
     const date = moment().format();
     return this.http.post<{ name: string }>(
@@ -34,7 +40,24 @@ export class PostsService {
     );
   }
 
-  deletePost() {
+  updatePost(postId: string, title: string, desc: string, date, user: string) {
+    const last_update = moment().format();
+    return this.http.put(
+      `${environment.firebaseConfig.databaseURL}/traffic-updates/${postId}.json`,
+      {
+        id: null,
+        title,
+        desc,
+        last_update,
+        date,
+        user
+      }
+    );
+  }
 
+  deletePost(postId: string) {
+    return this.http.delete<{ name: string }>(
+      `${environment.firebaseConfig.databaseURL}/traffic-updates/${postId}.json`,
+    );
   }
 }

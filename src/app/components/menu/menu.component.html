@@ -5,7 +5,7 @@
   <ion-item (click)="navigateTo('/login')" *ngIf="!loginState">
     <ion-label>Admin Login</ion-label>
   </ion-item>
-  <ion-item *ngIf="loginState" (click)="navigateTo('/posts')">
+  <ion-item (click)="navigateTo('/posts')">
     <ion-label>Traffic Updates</ion-label>
   </ion-item>
   <ion-item *ngIf="loginState" (click)="onLogout()">

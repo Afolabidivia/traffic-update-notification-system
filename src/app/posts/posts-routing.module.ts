@@ -13,11 +13,11 @@ const routes: Routes = [
     loadChildren: () => import('./new-post/new-post.module').then( m => m.NewPostPageModule)
   },
   {
-    path: 'edit-post',
+    path: 'edit-post/:postId',
     loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule)
   },
   {
-    path: 'post-item/:postId',
+    path: ':postId',
     loadChildren: () => import('./post-item/post-item.module').then( m => m.PostItemPageModule)
   }
 ];

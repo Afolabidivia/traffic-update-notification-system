@@ -4,7 +4,7 @@
       <ion-icon name="menu" (click)="openMenu($event)" style="width: 100%; height: 100%;"></ion-icon>
     </ion-buttons>
     <ion-title>Traffic Updates</ion-title>
-    <ion-buttons slot="primary">
+    <ion-buttons slot="primary" *ngIf="isLogin">
       <ion-button routerLink="/posts/new-post">
         <ion-icon name="add" slot="icon-only"></ion-icon>
       </ion-button>
@@ -23,7 +23,7 @@
           <div class="tup-title">{{ tu.title }}</div>
           <div class="tup-date">{{ tu.fd }}</div>
         </div>
-        <div class="icon-box">
+        <div class="icon-box" (click)="navigateToPost(tu.pid)">
           <ion-icon name="arrow-dropright" size="large"></ion-icon>
         </div>
       </div>

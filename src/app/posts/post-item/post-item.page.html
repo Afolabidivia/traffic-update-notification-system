@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>post-item</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="posts"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ post?.title }}</ion-title>
+    <ion-buttons slot="primary" *ngIf="isLogin">
+      <ion-button (click)=navigateToEditpage()>
+        <ion-icon name="create" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="confirmPostDelete()">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <div class="loader-box" *ngIf="isLoading">
+    <ion-spinner name="lines"></ion-spinner>
+  </div>
+  <div class="post-box" *ngIf="post && !isLoading">
+    <div class="post_meta">
+      <div class="post-title">{{ post.title }}</div>
+      <div class="post-date">{{ post.date }}</div>
+    </div>
+    <div class="post-body">{{ post.desc }}</div>
+  </div>
 </ion-content>

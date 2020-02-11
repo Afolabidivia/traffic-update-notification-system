@@ -26,8 +26,6 @@ export class LoginPage implements OnInit {
     this.authService.loginState.subscribe(
       val => {
         if (val) {
-          console.log(val);
-          
           this.router.navigateByUrl('/home');
         }
       }
