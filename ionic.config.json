@@ -1,5 +1,7 @@
 {
   "name": "traffic-update-notification-system",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

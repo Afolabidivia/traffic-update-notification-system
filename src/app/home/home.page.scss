@@ -32,3 +32,66 @@
         }
     }
 }
+.city_name_wrapper {
+    position: absolute;
+    z-index: 999;
+    margin: 20px;
+    right: 0;
+    .cn_box {
+        background: #ffffff;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        ion-label {
+            margin-left: 5px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+}
+.ti_wrapper {
+    position: absolute;
+    z-index: 999;
+    margin: 20px;
+    bottom: 0;
+    width: 90%;
+    .ti_box {
+        background: #ffffff;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        ion-label {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .indicator_reps {
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            .item_1 {
+                margin-right: 5px;
+            }
+            .items {
+                width: 30px;
+                height: 10px;
+                margin-right: 2px;
+            }
+            .items.item_2 {
+                background: #88c752;
+            }
+            .items.item_3 {
+                background: #e08930;
+            }
+            .items.item_4 {
+                background: #ed0000;
+            }
+            .items.item_5 {
+                margin-right: 5px;
+                background: #9c1512;
+            }
+        }
+    }
+}

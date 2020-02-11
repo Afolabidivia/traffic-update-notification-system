@@ -41,6 +41,7 @@ export class PostsService {
   }
 
   updatePost(postId: string, title: string, desc: string, date, user: string) {
+    // tslint:disable-next-line: variable-name
     const last_update = moment().format();
     return this.http.put(
       `${environment.firebaseConfig.databaseURL}/traffic-updates/${postId}.json`,
