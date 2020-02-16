@@ -1,16 +1,34 @@
 <ion-content>
+
   <div class="menu_wrapper">
     <div class="menu_box" (click)="openMenu($event)">
       <ion-icon name="menu"></ion-icon>
     </div>
-  </div>
-  <div class="city_name_wrapper">
-    <div class="cn_box">
-      <ion-icon name="locate"></ion-icon>
-      <ion-label>Abeokuta</ion-label>
+    <div class="search-box">
+      <ion-searchbar
+        showCancelButton="always"
+        animated="true"
+        (ionChange)="searhPopularRoad($event)"
+        [value]="searchVal"
+        ngModel></ion-searchbar>
+      <div class="search-results" *ngIf="searchRes && searchRes?.length > 0">
+        <ion-item *ngFor="let sr of searchRes" (click)="setMapLocation(sr.lat, sr.lng, sr.name)">
+          <ion-label>{{ sr.name }}</ion-label>
+        </ion-item>
+      </div>
     </div>
   </div>
+  <!-- <div class="city_name_wrapper">
+    <div class="cn_box">
+      <ion-label>Abeokuta</ion-label>
+    </div>
+  </div> -->
   <div class="ti_wrapper">
+    <div class="reset-loc-wrapper">
+      <div class="loc-box" (click)="resetMap()">
+        <ion-icon name="locate"></ion-icon>
+      </div>
+    </div>
     <div class="ti_box">
       <ion-label>Traffic Indicators</ion-label>
       <div class="indicator_reps">

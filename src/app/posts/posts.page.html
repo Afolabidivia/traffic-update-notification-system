@@ -17,7 +17,10 @@
     <div class="loader-box" *ngIf="isLoading">
       <ion-spinner name="crescent"></ion-spinner>
     </div>
-    <div *ngIf="!isLoading && trafficUpdates.length > 0">
+    <div class="loader-box" *ngIf="!isLoading && trafficUpdates?.length === 0">
+      <ion-label>No traffic updates found!</ion-label>
+    </div>
+    <div *ngIf="!isLoading && trafficUpdates?.length > 0">
       <div class="tup-box" *ngFor="let tu of trafficUpdates">
         <div class="tup-info">
           <div class="tup-title">{{ tu.title }}</div>

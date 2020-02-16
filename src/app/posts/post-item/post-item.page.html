@@ -26,4 +26,63 @@
     </div>
     <div class="post-body">{{ post.desc }}</div>
   </div>
+  <div class="comment-wrapper">
+    <div class="comment-box">
+      <div class="comm-header">
+        <ion-label>Comments</ion-label>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmitComment()">
+        <ion-grid>
+          <ion-row>
+            <ion-col size-sm="6" offset-sm="3">
+              <ion-input
+                class="comm-input"
+                type="text"
+                formControlName="name"
+                placeholder="Name"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size-sm="6" offset-sm="3">
+              <ion-input
+                class="comm-input"
+                type="email"
+                formControlName="email"
+                placeholder="Email"
+              ></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size-sm="6" offset-sm="3">
+              <ion-textarea 
+                class="comm-input"
+                rows="3"
+                formControlName="comment"
+                placeholder="Your Comment"></ion-textarea>
+            </ion-col>
+          </ion-row>
+          <ion-button [disabled]="!form.valid" type="submit">submit</ion-button>
+        </ion-grid>
+      </form>
+      <div *ngIf="isLoadingComment" style="display: flex; font-size: 14px;">
+        <div>Loading comments</div>
+        <ion-spinner name="dots"></ion-spinner>
+      </div>
+      <div *ngIf="!isLoadingComment && postComments?.length === 0" style="display: flex; font-size: 14px;">
+        <div>No comments found!</div>
+      </div>
+      <div *ngIf="!isLoadingComment && postComments?.length > 0">
+        <div class="comment-meta" *ngFor="let pcomm of postComments">
+          <div class="comm-text-header">
+            <div class="comm-name">{{ pcomm.commenter }}</div>
+            <div class="seperator"></div>
+            <div class="comm-email">({{ pcomm.commenterEmail }})</div>
+          </div>
+          <div class="comm-time">{{ pcomm.date }}</div>
+          <div class="comm-text">{{ pcomm.comment }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

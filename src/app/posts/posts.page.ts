@@ -15,7 +15,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class PostsPage implements OnInit {
   user: User;
-  trafficUpdates = [];
+  trafficUpdates;
   isLoading: boolean;
   isLogin: boolean;
 
@@ -38,12 +38,14 @@ export class PostsPage implements OnInit {
     this.isLoading = true;
     this.trafficUpdates = [];
     this.postService.fetchPosts().subscribe(posts => {
-      Object.keys(posts).map(elem => {
-        this.isLoading = false;
-        posts[elem].fd = moment(posts[elem].date, ['YYYY-M-D']).format('dddd, MMMM Do YYYY');
-        posts[elem].pid = elem;
-        this.trafficUpdates.push(posts[elem]);
-      });
+      this.isLoading = false;
+      if (posts) {
+        Object.keys(posts).map(elem => {
+          posts[elem].fd = moment(posts[elem].date, ['YYYY-M-D']).format('dddd, MMMM Do YYYY');
+          posts[elem].pid = elem;
+          this.trafficUpdates.push(posts[elem]);
+        });
+      }
     });
   }
 

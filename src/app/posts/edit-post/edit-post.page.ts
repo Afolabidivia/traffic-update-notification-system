@@ -29,40 +29,32 @@ export class EditPostPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.loginState.subscribe(
-      val => {
-        if (val) {
-          this.route.paramMap.subscribe(paramMap => {
-            if (!paramMap.has('postId')) {
-              this.navCtrl.navigateBack('post');
-              return;
-            }
-            this.postId = paramMap.get('postId');
-            this.defaultHref = `posts/${this.postId}`;
-            this.isLoading = true;
-            this.postService.fetchPost(this.postId)
-              .subscribe(res => {
-                this.post = res;
-                this.form = new FormGroup({
-                  title: new FormControl(this.post.title, {
-                    updateOn: 'blur',
-                    validators: [Validators.required]
-                  }),
-                  description: new FormControl(this.post.desc, {
-                    updateOn: 'blur',
-                    validators: [Validators.required, Validators.maxLength(180)]
-                  })
-                });
-                this.isLoading = false;
-              }, err => {
-                this.isLoading = false;
-              });
-          });
-        } else {
-          this.navCtrl.navigateBack('posts');
-        }
+    this.route.paramMap.subscribe(paramMap => {
+      if (!paramMap.has('postId')) {
+        this.navCtrl.navigateBack('post');
+        return;
       }
-    );
+      this.postId = paramMap.get('postId');
+      this.defaultHref = `posts/${this.postId}`;
+      this.isLoading = true;
+      this.postService.fetchPost(this.postId)
+        .subscribe(res => {
+          this.post = res;
+          this.form = new FormGroup({
+            title: new FormControl(this.post.title, {
+              updateOn: 'blur',
+              validators: [Validators.required]
+            }),
+            description: new FormControl(this.post.desc, {
+              updateOn: 'blur',
+              validators: [Validators.required, Validators.maxLength(180)]
+            })
+          });
+          this.isLoading = false;
+        }, err => {
+          this.isLoading = false;
+        });
+    });
   }
 
   onUpdatePost() {

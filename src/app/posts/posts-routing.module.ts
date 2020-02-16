@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PostsPage } from './posts.page';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,11 +11,13 @@ const routes: Routes = [
   },
   {
     path: 'new-post',
-    loadChildren: () => import('./new-post/new-post.module').then( m => m.NewPostPageModule)
+    loadChildren: () => import('./new-post/new-post.module').then( m => m.NewPostPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'edit-post/:postId',
-    loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule)
+    loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: ':postId',

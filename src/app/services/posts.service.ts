@@ -61,4 +61,30 @@ export class PostsService {
       `${environment.firebaseConfig.databaseURL}/traffic-updates/${postId}.json`,
     );
   }
+
+  fetchPostComments(postId: string) {
+    return this.http.get(
+      `${environment.firebaseConfig.databaseURL}/comments/${postId}.json`
+    );
+  }
+
+  addComment(postId: string, commenter: string, commenterEmail: string, comment: string) {
+    const date = moment().format();
+    return this.http.post<{ name: string }>(
+      `${environment.firebaseConfig.databaseURL}/comments/${postId}.json`,
+      {
+        id: null,
+        commenter,
+        commenterEmail,
+        comment,
+        date
+      }
+    );
+  }
+
+  deletePostComments(postId: string) {
+    return this.http.delete<{ name: string }>(
+      `${environment.firebaseConfig.databaseURL}/comments/${postId}.json`,
+    );
+  }
 }

@@ -12,23 +12,39 @@
 .menu_wrapper {
     position: absolute;
     z-index: 999;
-    width: 50px;
-    height: 50px;
     margin: 20px;
+    width: 90%;
+    // padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    // align-items: center;
     .menu_box {
-        background: #ffffff;
-        box-shadow: 0 3px 6px #C7C7C72C;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        padding: 10px;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        box-shadow: 0 3px 6px #dbdfe4;
+        width: 40px;
+        height: 40px;
+        padding: 5px;
         ion-icon {
             color: #000000;
             width: 30px;
             height: 30px;
+        }
+    }
+    .search-box {
+        width: 90%;
+        ion-searchbar {
+            width: 100%;
+            padding-top: 0;
+        }
+        .search-results {
+            background: #ffffff;
+            padding: 10px;
+            width: 100%;
+            max-height: 300px;
+            overflow: auto;
         }
     }
 }
@@ -55,6 +71,21 @@
     margin: 20px;
     bottom: 0;
     width: 90%;
+    .reset-loc-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        .loc-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 6px #dbdfe4;
+        }
+    }
     .ti_box {
         background: #ffffff;
         padding: 10px;

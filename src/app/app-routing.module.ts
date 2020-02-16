@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,8 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'posts',
-    loadChildren: () => import('./posts/posts.module').then( m => m.PostsPageModule),
-    canLoad: [AuthGuard]
+    loadChildren: () => import('./posts/posts.module').then( m => m.PostsPageModule)
   }
 ];
 
